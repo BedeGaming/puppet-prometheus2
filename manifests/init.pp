@@ -169,7 +169,6 @@ class prometheus (
 
   anchor {'prometheus_first': }
   ->
-  class { '::prometheus::service_reload': } ->
   class { '::prometheus::install': } ->
   class { '::prometheus::config':
     global_config   => $global_config,
