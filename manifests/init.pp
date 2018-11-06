@@ -178,12 +178,12 @@ class prometheus (
     notify          => $notify_service,
     config_template => $config_template,
   } ->
+  class { '::prometheus::service_reload': } ->
   class { '::prometheus::alerts':
     location => $config_dir,
     alerts   => $alerts,
     notify   => $notify_service,
   } ->
-  class { '::prometheus::service_reload': } ->
   class { '::prometheus::run_service': } ->
   anchor {'prometheus_last': }
 }
