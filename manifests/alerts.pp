@@ -22,7 +22,6 @@ class prometheus::alerts (
                 owner   => $prometheus::user,
                 group   => $prometheus::group,
                 content => template('prometheus/alerts.erb'),
-                notify  => Class['prometheus::service_reload'],
         }
     }
 }
