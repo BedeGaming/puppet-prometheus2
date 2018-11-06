@@ -183,7 +183,6 @@ class prometheus (
     alerts   => $alerts,
     notify   => $notify_service,
   } ->
-  class { '::prometheus::service_reload': } ->
   class { '::prometheus::run_service': } ->
   anchor {'prometheus_last': }
 }
