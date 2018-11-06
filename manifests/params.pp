@@ -28,6 +28,7 @@ class prometheus::params {
   $extra_groups = []
   $global_config = { 'scrape_interval'=> '15s', 'evaluation_interval'=> '15s', 'external_labels'=> { 'monitor'=>'master'}}
   $group = 'prometheus'
+  $init_selector = 'prometheus'
   $install_method = 'url'
   $localstorage = '/var/lib/prometheus'
   $mysqld_exporter_cnf_config_path = '/etc/.my.cnf'
