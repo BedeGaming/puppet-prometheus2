@@ -3,7 +3,7 @@
 # changes
 class prometheus::service_reload() {
 
-  if $prometheus::server::manage_service == true {
+  if $prometheus::manage_service == true {
     $init_selector = $prometheus::init_selector
 
     $prometheus_reload = $prometheus::init_style ? {
