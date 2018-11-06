@@ -118,6 +118,7 @@ class prometheus (
   $arch                 = $::prometheus::params::arch,
   $version              = $::prometheus::params::version,
   $install_method       = $::prometheus::params::install_method,
+  $init_selector        = $::prometheus::params::init_selector,
   $os                   = $::prometheus::params::os,
   $data_retention       = $::prometheus::params::data_retention,
   $download_url         = undef,
@@ -183,6 +184,7 @@ class prometheus (
     alerts   => $alerts,
     notify   => $notify_service,
   } ->
+  class { '::prometheus::service_reload': } ->
   class { '::prometheus::run_service': } ->
   anchor {'prometheus_last': }
 }
