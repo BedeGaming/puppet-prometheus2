@@ -184,5 +184,6 @@ class prometheus (
     notify   => $notify_service,
   } ->
   class { '::prometheus::run_service': } ->
+  class { '::prometheus::service_reload': } ->
   anchor {'prometheus_last': }
 }
