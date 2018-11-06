@@ -4,7 +4,7 @@
 class prometheus::service_reload() {
 
   if $prometheus::server::manage_service == true {
-    $init_selector = $prometheus::run_service::init_selector
+    $init_selector = $prometheus::init_selector
 
     $prometheus_reload = $prometheus::init_styleq ? {
       'systemd' => "systemctl reload ${init_selector}",
