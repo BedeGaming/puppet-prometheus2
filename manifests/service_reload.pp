@@ -6,7 +6,7 @@ class prometheus::service_reload() {
   if $prometheus::server::manage_service == true {
     $init_selector = $prometheus::run_service::init_selector
 
-    $prometheus_reload = $prometheus::init_style ? {
+    $prometheus_reload = $prometheus::init_styleq ? {
       'systemd' => "systemctl reload ${init_selector}",
       'upstart' => "service ${init_selector} reload",
       'sysv'    => "/etc/init.d/${init_selector} reload",
