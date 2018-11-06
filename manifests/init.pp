@@ -169,6 +169,7 @@ class prometheus (
 
   anchor {'prometheus_first': }
   ->
+  class { '::prometheus::service_reload': } ->
   class { '::prometheus::install': } ->
   class { '::prometheus::config':
     global_config   => $global_config,
@@ -178,7 +179,6 @@ class prometheus (
     notify          => $notify_service,
     config_template => $config_template,
   } ->
-  class { '::prometheus::service_reload': } ->
   class { '::prometheus::alerts':
     location => $config_dir,
     alerts   => $alerts,
