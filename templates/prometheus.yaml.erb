@@ -8,6 +8,9 @@
     'alert_relabel_configs'=>scope.lookupvar('::prometheus::alert_relabel_config'), 
     'alertmanagers'=>scope.lookupvar('::prometheus::alertmanagers_config'), 
     } 
-    -%>
-}
+} -%>
 <%= full_config.to_yaml -%>
+
+
+
+
